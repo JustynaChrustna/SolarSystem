@@ -3,6 +3,7 @@ package justynachrustna.solarsystem;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,7 +23,7 @@ public class SolarSystemActivity extends AppCompatActivity
         setContentView(R.layout.activity_solar_system);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //xxxxxxx
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +85,13 @@ public class SolarSystemActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_planets) {
-            // Handle the camera action
+            SolarObjectsFragment fragment=new SolarObjectsFragment().newInstance(new SolarObject[]{
+                    new SolarObject("Earth"),
+                    new SolarObject("Mars")
+            });
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();//pozwala operować na fragmentach wewnątrz activity
+            fragmentTransaction.replace(R.id.containerLayout, fragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_moons) {
 
         } else if (id == R.id.nav_other) {
