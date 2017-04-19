@@ -4,11 +4,10 @@
     android:layout_height="match_parent"
     tools:context="justynachrustna.solarsystem.SolarObjectsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/objectTextView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/objectsRecyclerView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+
 
 </FrameLayout>
